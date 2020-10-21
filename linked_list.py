@@ -9,4 +9,19 @@
 
 class LinkedList:
 
-    pass
+    def __init__(self, value=None):
+        self.value = value
+        self.next = self
+        self.prev = self
+
+    def is_sentinel(self):
+        """
+        Returns if list node has a value of 'None'
+        """
+        return self.value is None
+
+    def is_empty(self):
+        """
+        Returns if list contains anything
+        """
+        return self.next == self and self.prev == self
