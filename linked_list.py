@@ -9,10 +9,16 @@
 
 class LinkedList:
 
+    class Node:
+        """
+        Used to create nodes for the Linked List
+        """
+
     def __init__(self, value=None):
         self.value = value
         self.next = self
         self.prev = self
+        self._last = self
 
     def is_sentinel(self):
         """
@@ -25,3 +31,24 @@ class LinkedList:
         Returns if list contains anything
         """
         return self.next == self and self.prev == self
+
+    def is_last(self):
+        """
+        Return if node is the last
+        """
+        return self._last == self
+
+    def last(self):
+        """
+        Returns the last node
+        """
+        return self._last
+
+    def append(self, new_node):
+        """
+        Appends a new node
+        """
+        self.next = new_node
+        new_node.prev = self
+        new_node.next = self
+        self.prev = new_node
