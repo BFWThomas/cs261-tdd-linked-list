@@ -5,7 +5,7 @@
 # If you can't figure it out recursively, use a loop. (But then refactor
 # your implementation into a recursive one!)
 # Your implementation should pass the tests in test_sorted_list.py.
-# YOUR NAME
+# Brian F Thomas
 
 class LinkedList:
 
@@ -69,3 +69,13 @@ class LinkedList:
         node.next = self.next
         self.next.prev = node
         self.next = node
+
+    def at(self, node):
+        """
+        Returns the node in the Nth position of the linked list
+        Must be called on the sentinel node
+        """
+        if node == 0:
+            return self
+        else:
+            return self.next.at(node-1)
