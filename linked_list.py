@@ -61,14 +61,27 @@ class LinkedList:
         self.next.prev = self.prev
         self.prev.next = self.next
 
-    def insert(self, node):
+    def insert(self, new_node):
         """
         Inserts a new node to the linked list
         """
-        node.prev = self
-        node.next = self.next
-        self.next.prev = node
-        self.next = node
+        new_node.prev = self
+        new_node.next = self.next
+        self.next.prev = new_node
+        self.next = new_node
+
+    def insert_in_order(self, new_node):
+        """
+        Inserts a new node while maintaining list order
+        """
+        if self.next.value is None:  # If list is empty, just append
+            self.append(new_node)
+            return
+        elif self.next.value > new_node.value:  # If next node in list has larger value, append here
+            self.insert(new_node)
+            return
+        # if next node in list has smaller value, call method on next node
+        return self.next.insert_in_order(new_node)
 
     def at(self, node):
         """

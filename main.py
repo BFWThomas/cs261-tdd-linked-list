@@ -6,5 +6,7 @@ from linked_list import LinkedList
 
 
 # Example
-ages = LinkedList()
-print(ages)
+ll = LinkedList()
+ll.insert_in_order(LinkedList(8))
+ll.insert_in_order(LinkedList(9))
+self.assertEqual(9, ll.at(2).value)
