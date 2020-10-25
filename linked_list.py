@@ -24,7 +24,7 @@ class LinkedList:
         """
         Returns if list node has a value of 'None'
         """
-        return self.value is None
+        return self._last.next == self and self.value is None
 
     def is_empty(self):
         """
