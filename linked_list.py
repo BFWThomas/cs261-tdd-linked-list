@@ -79,3 +79,15 @@ class LinkedList:
             return self
         else:
             return self.next.at(node-1)
+
+    def search(self, val):
+        """
+        Returns the node that contains search value or None if doesn't exist in linked list
+        """
+        if self.value == val:
+            return self
+        else:
+            if self == self._last:
+                return None
+            else:
+                return self.next.search(val)
