@@ -53,3 +53,10 @@ class LinkedList:
         new_node.prev = self._last
         self.prev = new_node
         self._last = new_node
+
+    def delete(self):
+        """
+        Removes the node from the list
+        """
+        self.next.prev = self.prev
+        self.prev.next = self.next
