@@ -48,7 +48,8 @@ class LinkedList:
         """
         Appends a new node
         """
-        self.next = new_node
-        new_node.prev = self
+        self._last.next = new_node
         new_node.next = self
+        new_node.prev = self._last
         self.prev = new_node
+        self._last = new_node
