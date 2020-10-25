@@ -46,7 +46,7 @@ class LinkedList:
 
     def append(self, new_node):
         """
-        Appends a new node
+        Appends a new node to end of linked list
         """
         self._last.next = new_node
         new_node.next = self
@@ -56,7 +56,16 @@ class LinkedList:
 
     def delete(self):
         """
-        Removes the node from the list
+        Removes the node from the linked list
         """
         self.next.prev = self.prev
         self.prev.next = self.next
+
+    def insert(self, node):
+        """
+        Inserts a new node to the linked list
+        """
+        node.prev = self
+        node.next = self.next
+        self.next.prev = node
+        self.next = node
